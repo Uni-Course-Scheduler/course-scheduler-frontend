@@ -17,7 +17,7 @@ import WarningIcon from "@/components/icons/WarningIcon.vue";
 describe('Tests if all icon fill props work as intended', (): void => {
 
     const sampleIconFill: string = '#2ECC71';
-    const defaultIconFill: string = '#FFFFFF';
+    const defaultIconFill: string = 'var(--text-dark-secondary)';
 
     // All icons that have direction angles to test
     const allIcons: Component[] = [
