@@ -1,5 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600&display=swap');
 
-:root {
+html, body {
+    padding: 0;
+    margin: 0;
+}
 
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* All main colors */
+    --main-blue: #4D6BDD;
+    --light-blue: #EDF1FD;
+    --main-yellow: #F1C40F;
+    --light-yellow: #FAF8EC;
+    --main-green: #13CC89;
+    --light-green: #E9F8F6;
+    --main-red: #FF6B6B;
+    --light-red: #FBF1F4;
+    --main-gray: #919191;
+    --light-gray: #F3F4F7;
+
+    /* All background colors */
+    --bc-color-primary: #FFFFFF;
+    --bc-color-secondary: #FBFCFF;
+
+    /* All text colors */
+    --text-light-primary: #FFFFFF;
+    --text-light-secondary: #DCDCDC;
+    --text-dark-primary: #2E2E2E;
+    --text-dark-secondary: #585858;
+
+    /* All state text colors */
+    --active-text: var(--main-blue);
+    --disabled-text: #A4ACCC;
+
+    /* All border colors */
+    --main-border: #E7E7E7;
+    --active-border: var(--main-blue);
+    --disabled-border: #CED2E4;
+
+    /* All font sizes */
+    --font-size-xxl: 1.5rem;
+    --font-size-xl: 1.375rem;
+    --font-size-l: 1.125rem;
+    --font-size-m: 1rem;
+    --font-size-s: 0.875rem;
+    --font-size-xs: 0.75rem;
+
+    /* All border radius */
+    --border-raduis-xl: 0.625rem;
+    --border-raduis-l: 0.5rem;
 }
