@@ -64,6 +64,11 @@ html, body {
     --column-gap-l: 1rem;
     --column-gap-m: 0.75rem;
     --column-gap-s: 0.5rem;
+
+    /* All default paddings */
+    --padding-xl: 2.813rem;
+    --padding-l: 2.188rem;
+    --padding-m: 1.25rem;
 }
 
 /**********************************************************************************************/
@@ -72,10 +77,28 @@ html, body {
 
 #app {
     display: flex;
+    overflow: hidden;
 }
 
 main {
     flex: 1;
+    padding: var(--padding-xl);
+    overflow-y: scroll;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    border: 2px solid var(--light-border);
+    border-radius: var(--border-raduis-xl);
+    padding: var(--padding-m);
+}
+
+.wrapper.dashed {
+    border-style: dashed;
 }
 
 span {
