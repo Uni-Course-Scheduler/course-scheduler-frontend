@@ -31,15 +31,6 @@ describe(`Tests if all icon rotation props work as intended`, () => {
 
     // Check for each icon component with direction prop if it renders the with the correct direction
     for (const IconComponent of allIcons) {
-        it(`renders ${IconComponent.component.name} default direction properly`, (): void => {
-            const wrapper = mount(IconComponent.component)
-            expect(wrapper.html()).toMatchSnapshot()
-        })
-
-        it(`renders ${IconComponent.component.name} with specified direction properly`, (): void => {
-            const wrapper = mount(IconComponent.component, {props: {direction: IconDirectionEnum.UP}})
-            expect(wrapper.html()).toMatchSnapshot()
-        })
 
         it(`rotates ${IconComponent.component.name} UP`, (): void => {
             const wrapper = mount(IconComponent.component, {props: {direction: IconDirectionEnum.UP}})

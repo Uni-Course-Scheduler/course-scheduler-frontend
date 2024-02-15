@@ -10,7 +10,7 @@ const props = defineProps({
   },
   direction: {
     type: Object as PropType<IconDirectionType>,
-    default: IconDirectionEnum.UP
+    required: true
   }
 })
 
