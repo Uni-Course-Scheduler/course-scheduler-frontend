@@ -4,5 +4,5 @@ import CaretIcon from "@/components/icons/CaretIcon.vue";
 </script>
 
 <template>
-  <CaretIcon :direction="IconDirectionEnum.UP" fill="#000000" />
+  <CaretIcon :direction="IconDirectionEnum.UP" />
 </template>

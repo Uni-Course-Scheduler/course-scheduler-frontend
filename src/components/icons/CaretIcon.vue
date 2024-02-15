@@ -6,7 +6,7 @@ import {IconDirectionEnum} from "@/models/enums/IconDirectionEnum";
 const props = defineProps({
   fill: {
     type: String,
-    default: '#FFFFFF'
+    default: 'var(--text-dark-secondary)'
   },
   direction: {
     type: Object as PropType<IconDirectionType>,

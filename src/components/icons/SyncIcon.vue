@@ -2,7 +2,7 @@
 defineProps({
   fill: {
     type: String,
-    default: '#FFFFFF'
+    default: 'var(--text-dark-secondary)'
   }
 })
 </script>
