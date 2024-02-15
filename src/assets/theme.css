@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800&display=swap');
 
 html, body {
     padding: 0;
@@ -56,6 +56,13 @@ html, body {
     --font-size-s: 0.875rem;
     --font-size-xs: 0.75rem;
 
+    /* All font weights */
+    --text-bold: 700;
+    --text-semi-bold: 600;
+    --text-medium: 500;
+    --text-regular: 400;
+    --text-light: 300;
+
     /* All border radius */
     --border-raduis-xl: 0.625rem;
     --border-raduis-l: 0.5rem;
@@ -111,6 +118,12 @@ span {
 
 h1, h2, h3, h4 {
     margin-top: 0;
+    color: var(--text-dark-primary);
+}
+
+h2 {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--text-semi-bold);
 }
 
 a {

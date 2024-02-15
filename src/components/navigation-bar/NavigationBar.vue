@@ -55,6 +55,7 @@ a {
   column-gap: var(--column-gap-l);
   padding: var(--column-gap-l);
   font-size: var(--font-size-xl);
+  font-weight: var(--text-medium);
   border-radius: var(--border-raduis-l);
   margin-bottom: 1.25rem;
 }

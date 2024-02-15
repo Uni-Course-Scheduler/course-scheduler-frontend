@@ -32,11 +32,13 @@ header svg {
 
 .user-name {
   font-size: var(--font-size-l);
+  font-weight: var(--text-medium);
   color: var(--text-light-primary);
 }
 
 .semester {
   font-size: var(--font-size-s);
+  font-weight: var(--text-regular);
   color: var(--text-light-secondary);
 }
 </style>
