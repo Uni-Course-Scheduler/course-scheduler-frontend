@@ -15,7 +15,7 @@ defineProps({
 </template>
 
 <style>
-// default size, not scoped in order to recieve styles from above
+/* default size, not scoped in order to receive styles from above */
 svg {
   width: 20px;
   height: 20px;
