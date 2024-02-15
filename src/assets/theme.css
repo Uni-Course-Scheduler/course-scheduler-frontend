@@ -7,11 +7,17 @@ html, body {
 
 * {
     box-sizing: border-box;
+    font-family: 'Epilogue', sans-serif;
 }
+
+/**********************************************************************************************/
+/* ------------------------------- All Theme Colors & Vars ---------------------------------- */
+/**********************************************************************************************/
 
 :root {
     /* All main colors */
     --main-blue: #4D6BDD;
+    --dark-blue: #3E56B1;
     --light-blue: #EDF1FD;
     --main-yellow: #F1C40F;
     --light-yellow: #FAF8EC;
@@ -37,7 +43,8 @@ html, body {
     --disabled-text: #A4ACCC;
 
     /* All border colors */
-    --main-border: #E7E7E7;
+    --main-border: #6D8EF1;
+    --light-border: #E7E7E7;
     --active-border: var(--main-blue);
     --disabled-border: #CED2E4;
 
@@ -52,4 +59,38 @@ html, body {
     /* All border radius */
     --border-raduis-xl: 0.625rem;
     --border-raduis-l: 0.5rem;
+
+    /* All column gaps */
+    --column-gap-l: 1rem;
+    --column-gap-m: 0.75rem;
+    --column-gap-s: 0.5rem;
+}
+
+/**********************************************************************************************/
+/* ------------------------------- Main Container Styles ------------------------------------ */
+/**********************************************************************************************/
+
+#app {
+    display: flex;
+}
+
+main {
+    flex: 1;
+}
+
+span {
+    display: block;
+}
+
+/**********************************************************************************************/
+/* --------------------------------- Main Text Styles --------------------------------------- */
+/**********************************************************************************************/
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-light-primary);
 }
