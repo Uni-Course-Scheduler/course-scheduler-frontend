@@ -5,6 +5,7 @@ import ModuleIcon from "@/components/icons/ModuleIcon.vue";
 import WarningIcon from "@/components/icons/WarningIcon.vue";
 import PlansIcon from "@/components/icons/PlansIcon.vue";
 import GraduationCapIcon from "@/components/icons/GraduationCapIcon.vue";
+import NavigationBarFooter from "@/components/navigation-bar/NavigationBarFooter.vue";
 
 const iconFill: string = 'var(--text-light-primary)'
 </script>
@@ -13,30 +14,34 @@ const iconFill: string = 'var(--text-light-primary)'
   <aside id="navigation-bar">
     <NavigationBarHeader />
 
-    <RouterLink :to="{ name: 'scheduler' }">
-      <CalendarIcon :fill="iconFill" />
-      <span>Module Planen</span>
-    </RouterLink>
+    <div class="link-wrapper">
+      <RouterLink :to="{ name: 'scheduler' }">
+        <CalendarIcon :fill="iconFill" />
+        <span>Module Planen</span>
+      </RouterLink>
 
-    <RouterLink :to="{ name: 'modules' }">
-      <ModuleIcon :fill="iconFill" />
-      <span>Modulübersicht</span>
-    </RouterLink>
+      <RouterLink :to="{ name: 'modules' }">
+        <ModuleIcon :fill="iconFill" />
+        <span>Modulübersicht</span>
+      </RouterLink>
 
-    <RouterLink :to="{ name: 'conflicts' }">
-      <WarningIcon :fill="iconFill" />
-      <span>Konflikte</span>
-    </RouterLink>
+      <RouterLink :to="{ name: 'conflicts' }">
+        <WarningIcon :fill="iconFill" />
+        <span>Konflikte</span>
+      </RouterLink>
 
-    <RouterLink :to="{ name: 'archive' }">
-      <PlansIcon :fill="iconFill" />
-      <span>gespeicherte Pläne</span>
-    </RouterLink>
+      <RouterLink :to="{ name: 'archive' }">
+        <PlansIcon :fill="iconFill" />
+        <span>gespeicherte Pläne</span>
+      </RouterLink>
 
-    <RouterLink :to="{ name: 'settings' }">
-      <GraduationCapIcon :fill="iconFill" />
-      <span>Uni Einstellungen</span>
-    </RouterLink>
+      <RouterLink :to="{ name: 'settings' }">
+        <GraduationCapIcon :fill="iconFill" />
+        <span>Uni Einstellungen</span>
+      </RouterLink>
+    </div>
+
+    <NavigationBarFooter />
   </aside>
 </template>
 
@@ -47,6 +52,12 @@ const iconFill: string = 'var(--text-light-primary)'
   height: 100vh;
   background-color: var(--main-blue);
   padding: 1.563rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.link-wrapper {
+  flex: 1;
 }
 
 a {
