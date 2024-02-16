@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type {PropType} from "vue";
-import type {RouteRecord} from "vue-router";
+import type {RouteRecordRaw} from "vue-router";
 
 defineProps({
   route: {
-    type: Object as PropType<RouteRecord>,
+    type: Object as PropType<RouteRecordRaw>,
     required: true
   }
 })
@@ -12,7 +12,7 @@ defineProps({
 
 <template>
   <RouterLink :to="{ name: route.name }">
-    <component :is="route.meta.icon" fill="var(--text-light-primary)"/>
+    <component v-if="route.meta" :is="route.meta.icon" fill="var(--text-light-primary)"/>
     <span>{{ route.meta.navBarTitle }}</span>
   </RouterLink>
 </template>
