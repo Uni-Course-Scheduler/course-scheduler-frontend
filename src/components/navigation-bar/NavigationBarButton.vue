@@ -42,7 +42,7 @@ a span {
 }
 
 svg {
-  width: 1.625rem;
-  height: 1.625rem;
+  width: 1.85rem;
+  height: 1.85rem;
 }
 </style>

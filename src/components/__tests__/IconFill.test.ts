@@ -19,21 +19,25 @@ describe('Tests if all icon fill props work as intended', (): void => {
     const sampleIconFill: string = '#2ECC71';
     const defaultIconFill: string = 'var(--text-dark-secondary)';
 
-    // All icons that have direction angles to test
+    // All icons that where svg has direct fill
     const allIcons: Component[] = [
         AddPlanIcon,
         ArrowIcon,
-        CalendarIcon,
         CaretIcon,
         CheckIcon,
-        GraduationCapIcon,
-        ModuleIcon,
-        PlansIcon,
         SearchIcon,
         SyncIcon,
         UserIcon,
-        WarningIcon
     ];
+
+    // fill attribute is on path since all nav button icons are in a additional wrapper
+    const allNavigationBarIcons: Component[] = [
+        CalendarIcon,
+        ModuleIcon,
+        WarningIcon,
+        PlansIcon,
+        GraduationCapIcon
+    ]
 
     // Check for each icon component if it renders the default fill or a custom fill properly
     for (const IconComponent of allIcons) {
@@ -45,6 +49,19 @@ describe('Tests if all icon fill props work as intended', (): void => {
         it(`sets the fill attribute correctly for ${IconComponent.name}`, (): void => {
             const wrapper = mount(IconComponent, { props: { fill: sampleIconFill } });
             expect(wrapper.find('svg').attributes('fill')).toBe(sampleIconFill);
+        });
+    }
+
+    // Check for each navigation bar icon component if it renders the default fill or a custom fill properly
+    for (const IconComponent of allNavigationBarIcons) {
+        it(`sets the default fill value correctly for ${IconComponent.name}`, (): void => {
+            const wrapper = mount(IconComponent);
+            expect(wrapper.find('path').attributes('fill')).toBe(defaultIconFill);
+        });
+
+        it(`sets the fill attribute correctly for ${IconComponent.name}`, (): void => {
+            const wrapper = mount(IconComponent, { props: { fill: sampleIconFill } });
+            expect(wrapper.find('path').attributes('fill')).toBe(sampleIconFill);
         });
     }
 });
