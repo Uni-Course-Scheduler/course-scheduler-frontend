@@ -5,7 +5,7 @@ import CaretIcon from '@/components/icons/CaretIcon.vue'
 import {IconDirectionEnum} from '@/models/enums/IconDirectionEnum'
 import type {IDirectionTest} from "@/models/interfaces/IDirectionTest"
 
-describe(`Tests if all icon rotation props work as intended`, () => {
+describe('Tests if all icon rotation props work as intended', () => {
 
     // All icons that have direction angles to test 
     const allIcons: IDirectionTest []= [
