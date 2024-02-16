@@ -5,9 +5,5 @@ import NavigationBar from "@/components/navigation-bar/NavigationBar.vue";
 
 <template>
   <NavigationBar />
-  <main>
-    <div class="container">
-      <RouterView />
-    </div>
-  </main>
+  <RouterView />
 </template>

@@ -3,6 +3,10 @@
 </script>
 
 <template>
-  <h2>Präferenzen</h2>
-  <div class="wrapper"></div>
+  <main>
+    <div class="container">
+      <h2>Präferenzen</h2>
+      <div class="wrapper"></div>
+    </div>
+  </main>
 </template>
