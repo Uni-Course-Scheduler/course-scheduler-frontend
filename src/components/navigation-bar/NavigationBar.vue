@@ -1,47 +1,34 @@
 <script setup lang="ts">
 import NavigationBarHeader from "@/components/navigation-bar/NavigationBarHeader.vue";
-import CalendarIcon from "@/components/icons/CalendarIcon.vue";
-import ModuleIcon from "@/components/icons/ModuleIcon.vue";
-import WarningIcon from "@/components/icons/WarningIcon.vue";
-import PlansIcon from "@/components/icons/PlansIcon.vue";
-import GraduationCapIcon from "@/components/icons/GraduationCapIcon.vue";
 import NavigationBarFooter from "@/components/navigation-bar/NavigationBarFooter.vue";
+import NavigationBarButton from "@/components/navigation-bar/NavigationBarButton.vue";
+import router from "@/router";
+import {computed} from "vue";
+import type {ComputedRef} from "vue";
+import type {RouteRecord} from "vue-router";
 
-const iconFill: string = 'var(--text-light-primary)'
+// dynamically render
+const navBarButtons: ComputedRef<any[]> = computed(() => {
+  const navBarButtons: RouteRecord[] = []
+  router.getRoutes().forEach(route => {
+    if (route.meta.showInNavBar) navBarButtons.push(route)
+  })
+  return navBarButtons
+})
+
 </script>
 
 <template>
   <aside id="navigation-bar">
-    <NavigationBarHeader />
-
+    <NavigationBarHeader/>
     <div class="link-wrapper">
-      <RouterLink :to="{ name: 'scheduler' }">
-        <CalendarIcon :fill="iconFill" />
-        <span>Module Planen</span>
-      </RouterLink>
-
-      <RouterLink :to="{ name: 'modules' }">
-        <ModuleIcon :fill="iconFill" />
-        <span>Modulübersicht</span>
-      </RouterLink>
-
-      <RouterLink :to="{ name: 'conflicts' }">
-        <WarningIcon :fill="iconFill" />
-        <span>Konflikte</span>
-      </RouterLink>
-
-      <RouterLink :to="{ name: 'archive' }">
-        <PlansIcon :fill="iconFill" />
-        <span>gespeicherte Pläne</span>
-      </RouterLink>
-
-      <RouterLink :to="{ name: 'settings' }">
-        <GraduationCapIcon :fill="iconFill" />
-        <span>Uni Einstellungen</span>
-      </RouterLink>
+      <NavigationBarButton
+          v-for="(route, index) of navBarButtons"
+          :key="index"
+          :route="route"
+      />
     </div>
-
-    <NavigationBarFooter />
+    <NavigationBarFooter/>
   </aside>
 </template>
 
@@ -58,33 +45,5 @@ const iconFill: string = 'var(--text-light-primary)'
 
 .link-wrapper {
   flex: 1;
-}
-
-a {
-  display: flex;
-  align-items: center;
-  column-gap: var(--column-gap-l);
-  padding: var(--column-gap-l);
-  font-size: var(--font-size-xl);
-  font-weight: var(--text-medium);
-  border-radius: var(--border-raduis-l);
-  margin-bottom: 1.25rem;
-}
-
-a:hover {
-  background-color: var(--dark-blue);
-}
-
-a.router-link-active {
-  background-color: var(--dark-blue);
-}
-
-a span {
-  margin-top: 0.313rem;
-}
-
-svg {
-  width: 1.625rem;
-  height: 1.625rem;
 }
 </style>
