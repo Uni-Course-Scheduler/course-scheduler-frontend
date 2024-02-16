@@ -48,7 +48,7 @@ function getRotationAngle(): number {
 <style>
 /* default size, not scoped in order to receive styles from above */
 svg {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 </style>
