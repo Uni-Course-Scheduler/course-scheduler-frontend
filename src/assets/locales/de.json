@@ -16,5 +16,18 @@
   },
   "schedulerView": {
     "preferences": "Präferenzen"
+  },
+  "modulesView": {
+    "searchInputPlaceholder": "Nach Modulbezeichnung suchen",
+    "filterBtn": {
+      "all": "Alle Module",
+      "planned": "eingeplant",
+      "requested": "angefragt",
+      "accepted": "zugelassen"
+    },
+    "headings": {
+      "allModules": "Alle Module",
+      "selectedModules": "Deine Auswahl für dieses Semester"
+    }
   }
 }

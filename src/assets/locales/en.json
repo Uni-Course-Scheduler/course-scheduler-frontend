@@ -16,5 +16,18 @@
   },
   "schedulerView": {
     "preferences": "Preferences"
+  },
+  "modulesView": {
+    "searchInputPlaceholder": "Search for modules",
+    "filterBtn": {
+      "all": "all modules",
+      "planned": "planned",
+      "requested": "requested",
+      "accepted": "accepted"
+    },
+    "headings": {
+      "allModules": "All Modules",
+      "selectedModules": "Your selection for this semester"
+    }
   }
 }

@@ -31,7 +31,7 @@ const router = createRouter({
       component: ModuleView,
       meta: {
         showInNavBar: true,
-        icon: ModuleIcon
+        icon: ModuleIcon,
       }
     },
     {

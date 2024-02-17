@@ -25,8 +25,8 @@ html, body {
     --light-green: #E9F8F6;
     --main-red: #FF6B6B;
     --light-red: #FBF1F4;
-    --main-gray: #919191;
-    --light-gray: #F3F4F7;
+    --main-grey: #919191;
+    --light-grey: #F3F4F7;
 
     /* All background colors */
     --bc-color-primary: #FFFFFF;
@@ -76,6 +76,9 @@ html, body {
     --padding-xl: 2.813rem;
     --padding-l: 2.188rem;
     --padding-m: 1.25rem;
+
+    /* All input vars */
+    --input-height-xl: 3rem;
 }
 
 /**********************************************************************************************/
@@ -112,6 +115,65 @@ span {
     display: block;
 }
 
+.colored-wrapper {
+    position: relative;
+    flex: 1;
+    height: var(--input-height-xl);
+    border-radius: var(--border-raduis-xl);
+    padding-left: 1.563rem;
+}
+
+.colored-wrapper.grey {
+    background-color: var(--light-grey);
+}
+
+.colored-wrapper.blue {
+    background-color: var(--light-blue);
+}
+
+.colored-wrapper.yellow {
+    background-color: var(--light-yellow);
+}
+
+.colored-wrapper.green {
+    background-color: var(--light-green);
+}
+
+.colored-wrapper.red {
+    background-color: var(--light-red);
+}
+
+.colored-wrapper:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0.625rem;
+    border-radius: var(--border-raduis-l) 0 0 var(--border-raduis-l);
+}
+.colored-wrapper.grey:before {
+    background-color: var(--main-grey);
+}
+
+.colored-wrapper.blue:before {
+    background-color: var(--main-blue);
+}
+
+.colored-wrapper.yellow:before {
+    background-color: var(--main-yellow);
+}
+
+.colored-wrapper.green:before {
+    background-color: var(--main-green);
+}
+
+.colored-wrapper.red:before {
+    background-color: var(--main-red);
+}
+
+
+
 /**********************************************************************************************/
 /* --------------------------------- Main Text Styles --------------------------------------- */
 /**********************************************************************************************/
@@ -129,4 +191,26 @@ h2 {
 a {
     text-decoration: none;
     color: var(--text-light-primary);
+}
+
+/**********************************************************************************************/
+/* --------------------------------- Main Input Styles -------------------------------------- */
+/**********************************************************************************************/
+
+input {
+    width: 100%;
+    height: var(--input-height-xl);
+    border: 0.125rem solid var(--light-border);
+    border-radius: var(--border-raduis-xl);
+    padding-left: 1rem;
+    color: var(--text-dark-secondary);
+    font-size: var(--font-size-l);
+    font-weight: var(--text-regular);
+    margin: 0;
+}
+
+input[type="radio"] {
+    position: relative;
+    width: 25px;
+    height: 25px;
 }
