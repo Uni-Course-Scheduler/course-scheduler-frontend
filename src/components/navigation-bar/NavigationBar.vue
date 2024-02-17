@@ -5,17 +5,16 @@ import NavigationBarButton from "@/components/navigation-bar/NavigationBarButton
 import router from "@/router";
 import {computed} from "vue";
 import type {ComputedRef} from "vue";
-import type {RouteRecord} from "vue-router";
+import type {RouteRecordRaw} from "vue-router";
 
-// dynamically render
-const navBarButtons: ComputedRef<any[]> = computed(() => {
-  const navBarButtons: RouteRecord[] = []
+// all routes that should render a navigation bar button
+const navBarButtons: ComputedRef<RouteRecordRaw[]> = computed(() => {
+  const navBarButtons: RouteRecordRaw[] = []
   router.getRoutes().forEach(route => {
     if (route.meta.showInNavBar) navBarButtons.push(route)
   })
   return navBarButtons
 })
-
 </script>
 
 <template>

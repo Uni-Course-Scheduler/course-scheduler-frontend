@@ -1,4 +1,19 @@
 {
+  "navigationBar": {
+    "buttons": {
+      "scheduler": "Schedule Modules",
+      "modules": "Module overview",
+      "conflicts": "Conflicts",
+      "archive": "Saved plans",
+      "settings": "University settings"
+    },
+    "footer": {
+      "logout": "Logout",
+      "imprint": "Imprint",
+      "dataProtection": "Data protection",
+      "contact": "Contact"
+    }
+  },
   "schedulerView": {
     "preferences": "Preferences"
   }

@@ -1,19 +1,31 @@
 <script setup lang="ts">
-import type {PropType} from "vue";
+import type {ComputedRef, PropType} from "vue";
 import type {RouteRecordRaw} from "vue-router";
+import {computed} from "vue";
+import {useI18n} from "vue-i18n";
 
-defineProps({
+const { t } = useI18n()
+
+const props = defineProps({
   route: {
     type: Object as PropType<RouteRecordRaw>,
     required: true
   }
+})
+
+// Returns the navigation bar button title in the current selected language
+const multilingualTitle: ComputedRef<string> = computed(() => {
+  if (props.route && props.route.name) {
+    return t(`navigationBar.buttons.${props.route.name}`)
+  }
+  return ''
 })
 </script>
 
 <template>
   <RouterLink :to="{ name: route.name }">
     <component v-if="route.meta" :is="route.meta.icon" fill="var(--text-light-primary)"/>
-    <span>{{ route.meta.navBarTitle }}</span>
+    <span>{{ multilingualTitle }}</span>
   </RouterLink>
 </template>
 

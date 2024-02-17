@@ -1,15 +1,17 @@
 <script setup lang="ts">
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n()
 </script>
 
 <template>
-  <RouterLink class="logout" to="#">Abmelden</RouterLink>
+  <RouterLink class="logout" to="#">{{ t('navigationBar.footer.logout') }}</RouterLink>
   <footer>
-    <RouterLink to="#">Impressum</RouterLink>
+    <RouterLink to="#">{{ t('navigationBar.footer.imprint') }}</RouterLink>
     <span class="dot"></span>
-    <RouterLink to="#">Datenschutz</RouterLink>
+    <RouterLink to="#">{{ t('navigationBar.footer.dataProtection') }}</RouterLink>
     <span class="dot"></span>
-    <RouterLink to="#">Kontakt</RouterLink>
+    <RouterLink to="#">{{ t('navigationBar.footer.contact') }}</RouterLink>
   </footer>
 </template>
 

@@ -22,7 +22,6 @@ const router = createRouter({
       component: SchedulerView,
       meta: {
         showInNavBar: true,
-        navBarTitle: 'Module Planen',
         icon: CalendarIcon
       }
     },
@@ -32,7 +31,6 @@ const router = createRouter({
       component: ModuleView,
       meta: {
         showInNavBar: true,
-        navBarTitle: 'Modulübersicht',
         icon: ModuleIcon
       }
     },
@@ -42,7 +40,6 @@ const router = createRouter({
       component: ConflictView,
       meta: {
         showInNavBar: true,
-        navBarTitle: 'Konflikte',
         icon: WarningIcon
       }
     },
@@ -52,7 +49,6 @@ const router = createRouter({
       component: ArchiveView,
       meta: {
         showInNavBar: true,
-        navBarTitle: 'gespeicherte Pläne',
         icon: PlansIcon
       }
     },
@@ -62,7 +58,6 @@ const router = createRouter({
       component: SettingsView,
       meta: {
         showInNavBar: true,
-        navBarTitle: 'Uni Einstellungen',
         icon: GraduationCapIcon
       }
     },
