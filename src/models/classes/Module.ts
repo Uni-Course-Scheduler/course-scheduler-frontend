@@ -1,18 +1,23 @@
-import { ModuleFormatEnum } from "@/models/enums/ModuleFormatEnum";
-import type { ModuleFormatEnum as ModuleFormatType } from "@/models/enums/ModuleFormatEnum";
 import {ModuleTypeEnum} from "@/models/enums/ModuleTypeEnum";
 import type {ModuleTypeEnum as ModuleType} from "@/models/enums/ModuleTypeEnum";
+import type {ModuleFormat} from "@/models/classes/ModuleFormat";
 
 export class Module {
+    constructor(title: string, format: ModuleFormat[], type: ModuleTypeEnum) {
+        this.title = title;
+        this.format = format;
+        this.type = type;
+    }
 
     /** @var title of the module */
     private title: string = ''
 
     /** @var the format of the module */
-    private format: ModuleFormatType = ModuleFormatEnum.SL
+    private format: ModuleFormat[] = []
 
     /** @var the type of the module */
     private type: ModuleType = ModuleTypeEnum.P
+
 
     /**
      * Get the title of the module
@@ -36,19 +41,19 @@ export class Module {
     /**
      * Get the format of the module
      *
-     * @return ModuleFormatType
+     * @return ModuleFormat[]
      */
-    public getFormat(): ModuleFormatType {
+    public getFormat(): ModuleFormat[] {
         return this.format;
     }
 
     /**
      * Set the format of the module
      *
-     * @param format - The format to set
+     * @param format - ModuleFormat[]
      * @return void
      */
-    public setFormat(format: ModuleFormatType): void {
+    public setFormat(format: ModuleFormat[]): void {
         this.format = format;
     }
 

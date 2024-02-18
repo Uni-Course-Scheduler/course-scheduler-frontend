@@ -3,22 +3,32 @@ import ModulesViewHeader from "@/components/modules-view/ModulesViewHeader.vue";
 import draggable from 'vuedraggable'
 import {useI18n} from "vue-i18n";
 import type {Ref} from "vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {useModulesStore} from "@/stores/ModulesStore";
+import type {Module as ModuleType} from "@/models/classes/Module";
+import FetchModulesService from "@/services/FetchModulesService";
+import type {IModule} from "@/models/interfaces/IModule";
 
-const { t } = useI18n()
-
+const {t} = useI18n()
+const modulesStore = useModulesStore()
 const dragging: Ref<boolean> = ref(true)
 
+const allModules: Ref<IModule[]> = ref([])
+
+onMounted(() => {
+})
+
+
 const list1 = ref([
-  { name: "John", id: 1 },
-  { name: "Joao", id: 2 },
-  { name: "Jean", id: 3 },
-  { name: "Gerard", id: 4 }
+  {name: "John"},
+  {name: "Joao"},
+  {name: "Jean"},
+  {name: "Gerard"}
 ])
 const list2 = ref([
-  {name: "Juan", id: 5},
-  {name: "Edgard", id: 6},
-  {name: "Johnson", id: 7}
+  {name: "Juan"},
+  {name: "Edgard"},
+  {name: "Johnson"}
 ])
 
 </script>
@@ -26,6 +36,8 @@ const list2 = ref([
 <template>
   <main>
     <div class="container">
+
+
       <ModulesViewHeader/>
       <div class="flex-container">
         <div class="flex-column">
@@ -38,7 +50,7 @@ const list2 = ref([
               @end="dragging=false"
               item-key="id">
             <template #item="{element}">
-              <div>{{element.name}}</div>
+              <div>{{ element.name }}</div>
             </template>
           </draggable>
         </div>
@@ -52,7 +64,7 @@ const list2 = ref([
               @end="dragging=false"
               item-key="id">
             <template #item="{element}">
-              <div>{{element.name}}</div>
+              <div>{{ element.name }}</div>
             </template>
           </draggable>
         </div>

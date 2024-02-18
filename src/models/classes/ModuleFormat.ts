@@ -1,10 +1,23 @@
 import {WeekDayEnum} from "@/models/enums/WeekDayEnum";
 import type {WeekDayEnum as WeekDayType} from "@/models/enums/WeekDayEnum";
-
+import { ModuleFormatEnum } from "@/models/enums/ModuleFormatEnum";
+import type { ModuleFormatEnum as ModuleFormatType } from "@/models/enums/ModuleFormatEnum";
 export class ModuleFormat {
+    constructor(section: number, title: string, day: WeekDayEnum, time: string, rhythm: string, duration: string, type: ModuleFormatEnum) {
+        this.section = section;
+        this.title = title;
+        this.day = day;
+        this.time = time;
+        this.rhythm = rhythm;
+        this.duration = duration;
+        this.type = type;
+    }
 
     /** @var section number of the module */
     private section: number = 1
+
+    /** @var title of the module */
+    private title: string = ''
 
     /** @var day where the format takes place */
     private day: WeekDayType = WeekDayEnum.MO
@@ -17,6 +30,9 @@ export class ModuleFormat {
 
     /** @var duration of the format */
     private duration: string = ''
+
+    /** @var type of the format */
+    private type: ModuleFormatType = ModuleFormatEnum.SL
 
     /**
      * Get the section number of the module
@@ -34,6 +50,25 @@ export class ModuleFormat {
      */
     public setSection(section: number): void {
         this.section = section
+    }
+
+    /**
+     * Get the title of the module format
+     *
+     * @return string
+     */
+    public getTitle(): string {
+        return this.title;
+    }
+
+    /**
+     * Set the title of the module format
+     *
+     * @param title - The title to set
+     * @return void
+     */
+    public setTitle(title: string): void {
+        this.title = title;
     }
 
     /**
@@ -110,5 +145,24 @@ export class ModuleFormat {
      */
     public setDuration(duration: string): void {
         this.duration = duration;
+    }
+
+    /**
+     * Get the type of the module format
+     *
+     * @return ModuleFormatType
+     */
+    public getType(): ModuleFormatType {
+        return this.type;
+    }
+
+    /**
+     * Set the type of the module format
+     *
+     * @param type - ModuleFormatType
+     * @return void
+     */
+    public setType(type: ModuleFormatType): void {
+        this.type = type;
     }
 }
