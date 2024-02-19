@@ -94,9 +94,6 @@ main {
     flex: 1;
     padding: var(--padding-xl);
     overflow-y: scroll;
-}
-
-.container {
     max-width: 85rem;
     margin: 0 auto;
 }

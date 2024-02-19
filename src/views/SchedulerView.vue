@@ -6,9 +6,7 @@ const { t } = useI18n()
 
 <template>
   <main>
-    <div class="container">
       <h2>{{ t('schedulerView.preferences') }}</h2>
       <div class="wrapper"></div>
-    </div>
   </main>
 </template>
