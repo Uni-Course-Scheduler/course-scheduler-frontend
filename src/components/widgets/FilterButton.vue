@@ -1,37 +1,43 @@
 <script setup lang="ts">
-import type {PropType} from "vue";
-import type {ColoredWrapperEnum as ColoredWrapperType} from "@/models/enums/ColoredWrapperEnum";
-import {ColoredWrapperEnum} from "@/models/enums/ColoredWrapperEnum";
+import type { PropType } from "vue";
+import type { ColoredWrapperEnum as ColoredWrapperType } from "@/models/enums/ColoredWrapperEnum";
+import { ColoredWrapperEnum } from "@/models/enums/ColoredWrapperEnum";
+import ColoredWrapper from "@/components/widgets/ColoredWrapper.vue";
 
-defineProps({
+const props = defineProps({
   group: {
     type: String,
-    required: true
+    required: true,
   },
   text: {
     type: String,
-    required: true
+    required: true,
   },
   id: {
     type: String,
-    required: true
+    required: true,
   },
   color: {
     type: Object as PropType<ColoredWrapperType>,
-    default: ColoredWrapperEnum.GREY
-  }
-})
+    default: ColoredWrapperEnum.GREY,
+  },
+});
 </script>
 
 <template>
-<label class="colored-wrapper" :class="color">
-  <input type="radio" :name="group" :id="id" />
-  <span>{{ text }}</span>
-</label>
+  <ColoredWrapper 
+  :labelColor="props.color"
+  :fillBackground="true"
+  >
+    <div class="filter">
+      <input type="radio" :name="group" :id="id" />
+      <span>{{ text }}</span>
+    </div>
+  </ColoredWrapper>
 </template>
-
 <style scoped>
-.colored-wrapper {
+.filter {
+  height: var(--input-height-xl);
   display: flex;
   align-items: center;
   column-gap: var(--column-gap-m);
