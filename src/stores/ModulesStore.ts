@@ -7,7 +7,6 @@ import FetchModulesService from "@/services/FetchModulesService";
 import type {IModule} from "@/models/interfaces/IModule";
 import type {IModuleFormat} from "@/models/interfaces/IModuleFormat";
 import {ModuleFormat} from "@/models/classes/ModuleFormat";
-import type {ModuleFormat as ModuleFormatType} from "@/models/classes/ModuleFormat";
 
 export const useModulesStore = defineStore('modulesStore', () => {
 
@@ -32,6 +31,7 @@ export const useModulesStore = defineStore('modulesStore', () => {
                     allModuleFormats.push(moduleFormat)
                 })
                 const module = new Module(
+                    moduleObject.id,
                     moduleObject.title,
                     allModuleFormats,
                     moduleObject.type

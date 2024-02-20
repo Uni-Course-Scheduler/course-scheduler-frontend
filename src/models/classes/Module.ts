@@ -3,11 +3,15 @@ import type {ModuleTypeEnum as ModuleType} from "@/models/enums/ModuleTypeEnum";
 import type {ModuleFormat} from "@/models/classes/ModuleFormat";
 
 export class Module {
-    constructor(title: string, format: ModuleFormat[], type: ModuleTypeEnum) {
+    constructor(id: number, title: string, format: ModuleFormat[], type: ModuleTypeEnum) {
+        this.id = id,
         this.title = title;
         this.format = format;
         this.type = type;
     }
+
+     /** @var id of the module */
+     private id: number;
 
     /** @var title of the module */
     private title: string = ''
@@ -18,6 +22,25 @@ export class Module {
     /** @var the type of the module */
     private type: ModuleType = ModuleTypeEnum.P
 
+        /**
+     * Get the id of the module
+     *
+     * @return string
+     */
+        public getId(): number {
+            return this.id;
+        }
+    
+        /**
+         * Set the id of the module
+         *
+         * @param id - The id to set
+         * @return void
+         */
+        public setId(id: number): void {
+            this.id = id;
+        }
+    
 
     /**
      * Get the title of the module
