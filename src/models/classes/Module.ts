@@ -1,26 +1,32 @@
 import {ModuleTypeEnum} from "@/models/enums/ModuleTypeEnum";
 import type {ModuleTypeEnum as ModuleType} from "@/models/enums/ModuleTypeEnum";
+
 import type {ModuleFormat} from "@/models/classes/ModuleFormat";
+import type { ModuleStatusEnum as ModuleStatusType } from "@/models/enums/ModuleStatusEnum";
+import { ModuleStatusEnum } from "@/models/enums/ModuleStatusEnum";
 
 export class Module {
-    constructor(id: number, title: string, format: ModuleFormat[], type: ModuleTypeEnum) {
+    constructor(id: number, title: string, formats: ModuleFormat[], type: ModuleTypeEnum, status: ModuleStatusType) {
         this.id = id,
         this.title = title;
-        this.format = format;
+        this.formats = formats;
         this.type = type;
+        this.status = status;
     }
 
      /** @var id of the module */
      private id: number;
 
     /** @var title of the module */
-    private title: string = ''
+    private title: string;
 
-    /** @var the format of the module */
-    private format: ModuleFormat[] = []
+    /** @var the formats of the module */
+    private formats: ModuleFormat[];
 
     /** @var the type of the module */
-    private type: ModuleType = ModuleTypeEnum.P
+    private type: ModuleType;
+
+    private status: ModuleStatusType;
 
         /**
      * Get the id of the module
@@ -62,22 +68,22 @@ export class Module {
     }
 
     /**
-     * Get the format of the module
+     * Get the formats of the module
      *
      * @return ModuleFormat[]
      */
-    public getFormat(): ModuleFormat[] {
-        return this.format;
+    public getFormats(): ModuleFormat[] {
+        return this.formats;
     }
 
     /**
-     * Set the format of the module
+     * Set the formats of the module
      *
      * @param format - ModuleFormat[]
      * @return void
      */
-    public setFormat(format: ModuleFormat[]): void {
-        this.format = format;
+    public setFormats(formats: ModuleFormat[]): void {
+        this.formats = formats;
     }
 
     /**
@@ -97,5 +103,35 @@ export class Module {
      */
     public setType(type: ModuleType): void {
         this.type = type;
+    }
+
+    /**
+     * Get the status of the module
+     *
+     * @return ModuleStatusType
+     */
+    public getStatus(): ModuleStatusType {
+        return this.status;
+    }
+
+    /**
+     * Set the status of the module
+     *
+     * @param type - The status to set
+     * @return void
+     */
+    public setStatus(status: ModuleStatusType): void {
+        this.status = status;
+    }
+
+    public copy(): Module {
+        return new Module
+        (
+            this.id,
+            this.title,
+            this.formats,
+            this.type,
+            ModuleStatusEnum.PLANNED
+        );
     }
 }
