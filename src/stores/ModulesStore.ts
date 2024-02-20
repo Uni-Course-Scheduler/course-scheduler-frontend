@@ -34,7 +34,8 @@ export const useModulesStore = defineStore('modulesStore', () => {
                     moduleObject.id,
                     moduleObject.title,
                     allModuleFormats,
-                    moduleObject.type
+                    moduleObject.type,
+                    moduleObject.status,
                 )
                 tempModules.push(module)
             })
