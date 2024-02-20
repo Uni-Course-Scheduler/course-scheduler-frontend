@@ -115,28 +115,27 @@ span {
 .colored-wrapper {
     position: relative;
     flex: 1;
-    height: var(--input-height-xl);
     border-radius: var(--border-raduis-xl);
     padding-left: 1.563rem;
 }
 
-.colored-wrapper.grey {
+.colored-wrapper.grey.fill{
     background-color: var(--light-grey);
 }
 
-.colored-wrapper.blue {
+.colored-wrapper.blue.fill{
     background-color: var(--light-blue);
 }
 
-.colored-wrapper.yellow {
+.colored-wrapper.yellow.fill {
     background-color: var(--light-yellow);
 }
 
-.colored-wrapper.green {
+.colored-wrapper.green.fill {
     background-color: var(--light-green);
 }
 
-.colored-wrapper.red {
+.colored-wrapper.red.fill{
     background-color: var(--light-red);
 }
 
