@@ -5,7 +5,7 @@ import {ColoredWrapperEnum} from "@/models/enums/ColoredWrapperEnum";
 
 defineProps({
   labelColor: {
-    type: Object as PropType<ColoredWrapperType>,
+    type: String as PropType<ColoredWrapperType>,
     default: ColoredWrapperEnum.GREY
   },
   fillBackground: {
@@ -16,12 +16,10 @@ defineProps({
 </script>
 
 <template>
-<div class="colored-wrapper" :class="[labelColor, fillBackground ? 'fill' : '' ]">
+<div class="colored-wrapper" :class="[labelColor]">
     <slot></slot>
 </div>
 </template>
 
 <style scoped>
-.colored-wrapper {
-}
 </style>
