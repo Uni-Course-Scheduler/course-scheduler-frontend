@@ -1,168 +1,164 @@
-import {WeekDayEnum} from "@/models/enums/WeekDayEnum";
-import type {WeekDayEnum as WeekDayType} from "@/models/enums/WeekDayEnum";
 import { ModuleFormatEnum } from "@/models/enums/ModuleFormatEnum";
 import type { ModuleFormatEnum as ModuleFormatType } from "@/models/enums/ModuleFormatEnum";
+import type { ModuleFormatEvent } from "@/models/classes/ModuleFormatEvent";
 export class ModuleFormat {
-    constructor(section: number, title: string, day: WeekDayEnum, time: string, rhythm: string, duration: string, type: ModuleFormatEnum) {
-        this.section = section;
-        this.title = title;
-        this.day = day;
-        this.time = time;
-        this.rhythm = rhythm;
-        this.duration = duration;
-        this.type = type;
-    }
+  constructor(
+    id: number,
+    title: string,
+    sws: number,
+    credits: number,
+    language: string,
+    type: ModuleFormatEnum,
+  ) {
+    this.id = id;
+    this.title = title;
+    this.sws = sws;
+    this.credits = credits;
+    this.language = language;
+    this.type = type;
+    this.event = null;
+  }
 
-    /** @var section number of the module */
-    private section: number = 1
+  /** @var id number of the module */
+  private id: number;
 
-    /** @var title of the module */
-    private title: string = ''
+  /** @var title of the module */
+  private title: string;
 
-    /** @var day where the format takes place */
-    private day: WeekDayType = WeekDayEnum.MO
+  /** @var sws amount of hours per week */
+  private sws: number;
 
-    /** @var time where the format takes place */
-    private time: string = ''
+  /** @var credits format credits */
+  private credits: number;
 
-    /** @var how often the format takes place */
-    private rhythm: string = ''
+  /** @var language of the format */
+  private language: string;
 
-    /** @var duration of the format */
-    private duration: string = ''
+  /** @var type of the format */
+  private type: ModuleFormatType;
 
-    /** @var type of the format */
-    private type: ModuleFormatType = ModuleFormatEnum.SL
+  /** @var events of the format */
+  private event: ModuleFormatEvent | null;
 
-    /**
-     * Get the section number of the module
-     *
-     * @return number
-     */
-    public getSection(): number {
-        return this.section
-    }
+  public getEvent(): ModuleFormatEvent | null{
+    return this.event;
+  }
 
-    /**
-     * Set the section number of the module
-     *
-     * @return void
-     */
-    public setSection(section: number): void {
-        this.section = section
-    }
+  public setEvent(event: ModuleFormatEvent): void {
+    this.event = event;
+  }
 
-    /**
-     * Get the title of the module format
-     *
-     * @return string
-     */
-    public getTitle(): string {
-        return this.title;
-    }
+  /**
+   * Get the title of the module format
+   *
+   * @return string
+   */
+  public getTitle(): string {
+    return this.title;
+  }
 
-    /**
-     * Set the title of the module format
-     *
-     * @param title - The title to set
-     * @return void
-     */
-    public setTitle(title: string): void {
-        this.title = title;
-    }
+  /**
+   * Set the title of the module format
+   *
+   * @param title - The title to set
+   * @return void
+   */
+  public setTitle(title: string): void {
+    this.title = title;
+  }
 
-    /**
-     * Get the day of the module format
-     *
-     * @return WeekDayType
-     */
-    public getDay(): WeekDayType {
-        return this.day;
-    }
+  /**
+   * Get the id of the module format
+   *
+   * @return number
+   */
+  public getId(): number {
+    return this.id;
+  }
 
-    /**
-     * Set the day of the module format
-     *
-     * @param day - The day to set
-     * @return void
-     */
-    public setDay(day: WeekDayType): void {
-        this.day = day;
-    }
+  /**
+   * Set the id of the module format
+   *
+   * @param id - The id to set
+   * @return void
+   */
+  public setId(id: number): void {
+    this.id = id;
+  }
 
-    /**
-     * Get the time of the module format
-     *
-     * @return string
-     */
-    public getTime(): string {
-        return this.time;
-    }
+  /**
+   * Get the sws of the module format
+   *
+   * @return number
+   */
+  public getSws(): number {
+    return this.sws;
+  }
 
-    /**
-     * Set the time of the module format
-     *
-     * @param time - The time to set
-     * @return void
-     */
-    public setTime(time: string): void {
-        this.time = time;
-    }
+  /**
+   * Set the sws of the module format
+   *
+   * @param sws - The sws to set
+   * @return void
+   */
+  public setSws(sws: number): void {
+    this.sws = sws;
+  }
 
-    /**
-     * Get the rhythm of the module format
-     *
-     * @return string
-     */
-    public getRhythm(): string {
-        return this.rhythm;
-    }
+  /**
+   * Get the credits of the module format
+   *
+   * @return number
+   */
+  public getCredits(): number {
+    return this.credits;
+  }
 
-    /**
-     * Set the rhythm of the module format
-     *
-     * @param rhythm - The rhythm to set
-     * @return void
-     */
-    public setRhythm(rhythm: string): void {
-        this.rhythm = rhythm;
-    }
+  /**
+   * Set the credits of the module format
+   *
+   * @param credits - The credits to set
+   * @return void
+   */
+  public setCredits(credits: number): void {
+    this.credits = credits;
+  }
 
-    /**
-     * Get the duration of the module format
-     *
-     * @return string
-     */
-    public getDuration(): string {
-        return this.duration;
-    }
+  /**
+   * Get the language of the module format
+   *
+   * @return string
+   */
+  public getLanguage(): string {
+    return this.language;
+  }
 
-    /**
-     * Set the duration of the module format
-     *
-     * @param duration - The duration to set
-     * @return void
-     */
-    public setDuration(duration: string): void {
-        this.duration = duration;
-    }
+  /**
+   * Set the language of the module format
+   *
+   * @param language - The language to set
+   * @return void
+   */
+  public setLanguage(language: string): void {
+    this.language = language;
+  }
 
-    /**
-     * Get the type of the module format
-     *
-     * @return ModuleFormatType
-     */
-    public getType(): ModuleFormatType {
-        return this.type;
-    }
+  /**
+   * Get the type of the module format
+   *
+   * @return ModuleFormatType
+   */
+  public getType(): ModuleFormatType {
+    return this.type;
+  }
 
-    /**
-     * Set the type of the module format
-     *
-     * @param type - ModuleFormatType
-     * @return void
-     */
-    public setType(type: ModuleFormatType): void {
-        this.type = type;
-    }
+  /**
+   * Set the type of the module format
+   *
+   * @param type - ModuleFormatType
+   * @return void
+   */
+  public setType(type: ModuleFormatType): void {
+    this.type = type;
+  }
 }
