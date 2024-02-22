@@ -35,7 +35,6 @@ const navBarButtons: ComputedRef<RouteRecordRaw[]> = computed(() => {
 #navigation-bar {
   width: 20%;
   min-width: 360px;
-  height: 100vh;
   background-color: var(--main-blue);
   padding: 1.563rem;
   display: flex;
