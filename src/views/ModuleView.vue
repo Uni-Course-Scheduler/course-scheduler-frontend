@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import ModulesViewHeader from "@/components/modules-view/ModulesViewHeader.vue";
+import DefaultModule from "@/components/modules-view/DefaultModule.vue";
 import draggable from "vuedraggable";
 import { useI18n } from "vue-i18n";
 import type { Ref } from "vue";
 import { onMounted, ref } from "vue";
 import { useModulesStore } from "@/stores/ModulesStore";
+import { useTimetableStore } from "@/stores/TimetableStore";
+import SemesterSelection from "@/components/modules-view/SemesterSelection.vue";
+import StatusModule from "@/components/modules-view/StatusModule.vue";
+
+const timetableStore = useTimetableStore();
+
 
 const { t } = useI18n();
 const modulesStore = useModulesStore();
@@ -15,11 +22,34 @@ const dragging: Ref<boolean> = ref(true);
  * @param event
  */
 const checkMove = (event: any) => {
-  const isAlreadySelected = modulesStore.selectedModules.includes(
-    event.draggedContext.element
-  );
-  if (isAlreadySelected) {
-    return false;
+  const index = modulesStore.selectedModules.findIndex(
+      (module) => module.getId() ===  event.draggedContext.element.id
+    );
+
+    if (index !== -1) {
+      return false;
+    }
+};
+/**
+ * Creates a copy of the moved module, changes the status of the module 
+ * and replaces it with the module added automatically by the draggable library  
+ * @param event 
+ */
+const updateModuleStatus = async (event: any) => {
+  const modules = await timetableStore.createTimetable(modulesStore.selectedModules); 
+  modulesStore.parseToInstance(modules);
+
+  if (event.added) {
+    const index = modulesStore.selectedModules.findIndex(
+      (module) => module.getId() === event.added.element.id
+    );
+
+    if (index !== -1) {
+      const module = event.added.element
+      // Copy to create a new instance with updated status
+      const selectedModule = module.copy(); 
+      modulesStore.selectedModules[index] = selectedModule;
+    }
   }
 };
 onMounted(() => {
@@ -33,6 +63,7 @@ onMounted(() => {
     <div class="flex-container">
       <div class="flex-column">
         <h2>{{ t("modulesView.headings.allModules") }}</h2>
+        <SemesterSelection />
         <draggable
           :sort="false"
           :group="{ name: 'modules', pull: 'clone', put: 'false' }"
@@ -45,23 +76,25 @@ onMounted(() => {
           item-key="id"
         >
           <template #item="{ element }">
-            <div>{{ element.title }}</div>
+            <DefaultModule :module="element" />
           </template>
         </draggable>
       </div>
       <div class="flex-column">
         <h2>{{ t("modulesView.headings.selectedModules") }}</h2>
         <draggable
+        :sort="false"
           :group="{ name: 'modules' }"
           class="wrapper dashed grow"
           style="border-color: #9aaaec"
           v-model="modulesStore.selectedModules"
           @start="dragging = true"
           @end="dragging = false"
+          @change="updateModuleStatus"
           item-key="id"
         >
           <template #item="{ element }">
-            <div>{{ element.title }}</div>
+            <StatusModule :module="element" />
           </template>
         </draggable>
       </div>
@@ -78,6 +111,7 @@ main {
   height: 100%;
   display: flex;
   column-gap: var(--column-gap-l);
+  overflow: hidden;
 }
 
 .flex-column {
