@@ -5,7 +5,9 @@ import type { ModuleStatusEnum as ModuleStatusType } from "@/models/enums/Module
 export interface IModule {
   id: number;
   title: string;
-  format: IModuleFormat[];
+  formats: IModuleFormat[];
+  electives: IModule[];
   type: ModuleTypeEnum;
   status: ModuleStatusType;
+  mainModuleId: number
 }
