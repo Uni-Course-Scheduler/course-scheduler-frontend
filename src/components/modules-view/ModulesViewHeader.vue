@@ -2,9 +2,9 @@
 import SearchInput from "@/components/widgets/SearchInput.vue";
 import FilterBar from "@/components/modules-view/FilterBar.vue";
 import SearchIcon from "@/components/icons/SearchIcon.vue";
-import {useI18n} from "vue-i18n";
+import { useI18n } from "vue-i18n";
 
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
 
 <template>
