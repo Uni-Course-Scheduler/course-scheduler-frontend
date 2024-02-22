@@ -18,7 +18,7 @@ const props = defineProps({
     required: true,
   },
   color: {
-    type: Object as PropType<ColoredWrapperType>,
+    type: String as PropType<ColoredWrapperType>,
     default: ColoredWrapperEnum.GREY,
   },
 });
