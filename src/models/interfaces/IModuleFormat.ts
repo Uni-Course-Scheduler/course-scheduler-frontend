@@ -1,12 +1,12 @@
-import type {WeekDayEnum as WeekDayType} from "@/models/enums/WeekDayEnum";
 import type {ModuleFormatEnum as ModuleFormatType} from "@/models/enums/ModuleFormatEnum";
+import type { IModuleFormatEvent } from "./IModuleFormatEvent";
 
 export interface IModuleFormat {
-    section: number
+    id: number
     title: string
-    day: WeekDayType
-    time: string
-    rhythm: string
-    duration: string
+    sws: number
+    credits: number
+    language: string
     type: ModuleFormatType
+    event: IModuleFormatEvent
 }
