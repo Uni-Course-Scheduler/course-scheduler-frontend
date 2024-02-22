@@ -88,12 +88,12 @@ html, body {
 #app {
     display: flex;
     overflow: hidden;
+    height: 100vh;
 }
 
 main {
     flex: 1;
     padding: var(--padding-xl);
-    overflow-y: scroll;
     max-width: 85rem;
     margin: 0 auto;
 }
@@ -102,6 +102,7 @@ main {
     border: 2px solid var(--light-border);
     border-radius: var(--border-raduis-xl);
     padding: var(--padding-m);
+    overflow-y: scroll;
 }
 
 .wrapper.dashed {
@@ -119,23 +120,23 @@ span {
     padding-left: 1.563rem;
 }
 
-.colored-wrapper.grey.fill{
+.colored-wrapper.grey{
     background-color: var(--light-grey);
 }
 
-.colored-wrapper.blue.fill{
+.colored-wrapper.blue{
     background-color: var(--light-blue);
 }
 
-.colored-wrapper.yellow.fill {
+.colored-wrapper.yellow {
     background-color: var(--light-yellow);
 }
 
-.colored-wrapper.green.fill {
+.colored-wrapper.green {
     background-color: var(--light-green);
 }
 
-.colored-wrapper.red.fill{
+.colored-wrapper.red{
     background-color: var(--light-red);
 }
 
@@ -198,6 +199,8 @@ input {
     height: var(--input-height-xl);
     border: 0.125rem solid var(--light-border);
     border-radius: var(--border-raduis-xl);
+    background-color: var(--bc-color-primary);
+
     padding-left: 1rem;
     color: var(--text-dark-secondary);
     font-size: var(--font-size-l);
@@ -209,4 +212,20 @@ input[type="radio"] {
     position: relative;
     width: 25px;
     height: 25px;
+}
+
+input:focus {
+    outline: none;
+  }
+
+/**********************************************************************************************/
+/* --------------------------------- Main List Styles -------------------------------------- */
+/**********************************************************************************************/
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
